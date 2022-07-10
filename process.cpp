@@ -28,6 +28,7 @@ int main(int argc, char** argv)
     {
         cout << "Usage: " << argv[0] << " <datafile>" << endl;
     }
+    
     //Read the data
     char* datafile = argv[1];
     ifstream inDatafile(datafile);
@@ -38,22 +39,25 @@ int main(int argc, char** argv)
     while(!inDatafile.eof())
     {
         inDatafile >> sector;
-        inDataFile >> exposure;
-        inDataFile >> speed;
+        inDatafile >> exposure;
+        inDatafile >> speed;
 
-        if(!inDafile.eof())
+        if(!inDatafile.eof())
         {
             data.addData(sector,exposure,speed);
-            if((exposure < 0 || (speed < 0) && !badSectorData.containsSector(sector))
+            
+            //if((exposure < 0 || (speed < 0) && !badSectorData.containsSector(sector))
+            if((exposure < 0) || (speed < 0) && !badSectorData.containsSector(sector))
             {
                 badSectorData.addData(sector,exposure,speed);
             }
 
-            if(bacSectorData.constainsSector(sector))
+            if(badSectorData.containsSector(sector))
             {
                 data.removeSector(sector);
             }
         }
+    }
+
     return(0);
-}
-    
+} 

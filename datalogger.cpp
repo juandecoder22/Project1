@@ -1,10 +1,29 @@
 #include <iostream>
 #include "datalogger.h"
 
-
-class datalogger
+void datalogger::printReport()
 {
-    public:
+    std::cout << "Works\n";
+}
 
-    private:
-};
+void datalogger::printSectorList()
+{
+    std::cout << "Work\n";
+}
+
+int datalogger::containsSector(int aSector)
+{
+    return 5;
+}
+
+int datalogger::addData(int sector, int speed, int height)
+{
+
+    return 5;
+}
+
+int datalogger::removeSector(int sector)
+{
+    return 5;
+}
+
