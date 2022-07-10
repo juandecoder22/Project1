@@ -35,7 +35,7 @@ int main(int argc, char** argv)
     int exposure;
     int speed;
 
-    while(!inDatafile.efo())
+    while(!inDatafile.eof())
     {
         inDatafile >> sector;
         inDataFile >> exposure;
@@ -44,7 +44,7 @@ int main(int argc, char** argv)
         if(!inDafile.eof())
         {
             data.addData(sector,exposure,speed);
-            if(((exposure < 0 || (speed < 0) && !badSectorData.containsSector(sector))
+            if((exposure < 0 || (speed < 0) && !badSectorData.containsSector(sector))
             {
                 badSectorData.addData(sector,exposure,speed);
             }
